@@ -14,7 +14,7 @@
     />
     <style>
       .telegram-button {
-        background-color: #0088cc;
+        background-color: #25cec8;
         color: white;
         padding: 12px 24px;
         border-radius: 4px;
@@ -23,10 +23,11 @@
         font-size: 16px;
         margin-top: 20px;
         cursor: pointer;
+        border: none;
       }
 
       .telegram-button:hover {
-        background-color: #0077b3;
+        background-color: #25cec8;
       }
 
       .telegram-form {
@@ -42,18 +43,19 @@
       }
 
       .telegram-form-content {
-        background-color: #fefefe;
+        background-color: #9370db;
         margin: 15% auto;
         padding: 20px;
-        border: 1px solid #888;
+        border: 1px solid #8a2be2;
         width: 30%;
+        color: white;
       }
 
       .telegram-float-btn {
         position: fixed;
         bottom: 40px;
         right: 40px;
-        background-color: #0088cc;
+        background-color: #0088cc; /* Telegram's signature blue */
         width: 60px;
         height: 60px;
         border-radius: 50%;
@@ -69,7 +71,7 @@
 
       .telegram-float-btn:hover {
         transform: scale(1.1);
-        background-color: #0099dd;
+        background-color: #0099dd; /* Lighter Telegram blue */
       }
 
       .telegram-float-btn i {
@@ -77,11 +79,36 @@
         font-size: 24px;
       }
 
+      .telegram-form-content input {
+        background-color: white;
+        color: #333;
+        border: 1px solid #8a2be2;
+      }
+
+      .telegram-form-content label {
+        color: white;
+      }
+
+      .telegram-form-content h2 {
+        color: white;
+      }
+
       @media screen and (max-width: 768px) {
         .telegram-form-content {
           width: 90%;
           margin: 10% auto;
           padding: 15px;
+        }
+
+        .telegram-float-btn {
+          bottom: 20px;
+          right: 20px;
+          width: 50px;
+          height: 50px;
+        }
+
+        .telegram-float-btn i {
+          font-size: 20px;
         }
       }
     </style>
