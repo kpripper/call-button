@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MERX Furniture</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .telegram-button {
+      background-color: #0088cc;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .telegram-button:hover {
+      background-color: #0077b3;
+    }
+
+    .telegram-form {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .telegram-form-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 30%;
+    }
+
+    .telegram-float-btn {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        background-color: #0088cc;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        z-index: 1000;
+    }
+
+    .telegram-float-btn:hover {
+        transform: scale(1.1);
+        background-color: #0099dd;
+    }
+
+    .telegram-float-btn i {
+        color: white;
+        font-size: 24px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .telegram-float-btn {
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .telegram-float-btn i {
+            font-size: 20px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <!-- Your existing website content -->
+  <div class="container mx-auto my-10">
+    <div class="grid grid-cols-3 gap-4">
+        <div class="bg-white shadow-lg rounded-lg p-4">
+          <img src="/api/placeholder/400/320" alt="Kitchen" class="rounded-lg mb-4">
+          <h3 class="text-lg font-bold mb-2">Kitchens</h3>
+          <p class="text-gray-600 mb-4">Explore our selection of modern and functional kitchens.</p>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md inline-block">Shop Kitchens</a>
+        </div>
+      
+        <div class="bg-white shadow-lg rounded-lg p-4">
+          <img src="/api/placeholder/400/320" alt="Bedrooms" class="rounded-lg mb-4">
+          <h3 class="text-lg font-bold mb-2">Bedrooms</h3>
+          <p class="text-gray-600 mb-4">Create your dream bedroom with our high-quality furniture.</p>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md inline-block">Shop Bedrooms</a>
+        </div>
+      
+        <div class="bg-white shadow-lg rounded-lg p-4">
+          <img src="/api/placeholder/400/320" alt="Living Rooms" class="rounded-lg mb-4">
+          <h3 class="text-lg font-bold mb-2">Living Rooms</h3>
+          <p class="text-gray-600 mb-4">Discover our collection of stylish and comfortable living room furniture.</p>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md inline-block">Shop Living Rooms</a>
+        </div>
+      
+        <div class="bg-white shadow-lg rounded-lg p-4">
+          <img src="/api/placeholder/400/320" alt="Dining Rooms" class="rounded-lg mb-4">
+          <h3 class="text-lg font-bold mb-2">Dining Rooms</h3>
+          <p class="text-gray-600 mb-4">Find the perfect dining set to complete your space.</p>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md inline-block">Shop Dining Rooms</a>
+        </div>
+      
+        <div class="bg-white shadow-lg rounded-lg p-4">
+          <img src="/api/placeholder/400/320" alt="Home Offices" class="rounded-lg mb-4">
+          <h3 class="text-lg font-bold mb-2">Home Offices</h3>
+          <p class="text-gray-600 mb-4">Create a productive and inspiring home office environment.</p>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md inline-block">Shop Home Offices</a>
+        </div>
+      
+        <div class="bg-white shadow-lg rounded-lg p-4">
+          <img src="/api/placeholder/400/320" alt="Decor and Accessories" class="rounded-lg mb-4">
+          <h3 class="text-lg font-bold mb-2">Decor and Accessories</h3>
+          <p class="text-gray-600 mb-4">Elevate your space with our curated selection of home decor and accessories.</p>
+          <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md inline-block">Shop Decor</a>
+        </div>
+      </div>
+  </div>
+
+  <!-- Telegram call form -->
+  <div id="telegram-form" class="telegram-form">
+    <div class="telegram-form-content">
+      <h2 class="text-2xl font-bold mb-4">Request a Call</h2>
+      <form id="telegram-call-form">
+        <div class="mb-4">
+          <label for="phone-number" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+          <input type="tel" id="phone-number" class="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter phone number" required>
+        </div>
+        <div class="mb-4">
+          <label for="call-time" class="block text-gray-700 font-medium mb-2">Call Time</label>
+          <input type="time" id="call-time" class="border border-gray-300 rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+        </div>
+        <button type="submit" class="telegram-button">Submit</button>
+        <button type="button" class="telegram-button" onclick="closeForm()">Close</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="telegram-float-btn" onclick="document.getElementById('telegram-form').style.display='block'">
+    <i class="fab fa-telegram"></i>
+  </div>
+
+  <script>
+    function openForm() {
+      document.getElementById("telegram-form").style.display = "block";
+    }
+
+    function closeForm() {
+      document.getElementById("telegram-form").style.display = "none";
+    }
+
+    document.getElementById("telegram-call-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const phoneNumber = document.getElementById("phone-number").value;
+      const callTime = document.getElementById("call-time").value;
+
+      // Send data to Telegram Bot
+      fetch('/telegram-call-bot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ phoneNumber, callTime })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Call request submitted successfully!');
+        closeForm();
+      })
+      .catch(error => {
+        alert('Error submitting call request. Please try again later.');
+        console.error(error);
+      });
+    });
+  </script>
+</body>
+</html>
